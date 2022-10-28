@@ -13,15 +13,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.TimeZone;
 
 @Slf4j
@@ -30,12 +27,12 @@ import java.util.TimeZone;
 @EnableEurekaClient
 @EnableApolloConfig(value = {"application", "env"})
 @EnableFeignClients(basePackages = "com.danny")
-public class PaymentApiServer implements ApplicationListener<ApplicationReadyEvent> {
+public class DemoApiServer implements ApplicationListener<ApplicationReadyEvent> {
 
     public static void main(String[] args) {
         log.info("application starting");
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-        SpringApplication.run(PaymentApiServer.class, args);
+        SpringApplication.run(DemoApiServer.class, args);
     }
 
     @Bean
